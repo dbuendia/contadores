@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from "./components/Counter.jsx";
+import Header from "./components/Header.jsx";
 
 function App() {
+  function createCounters(number) {
+    let counterArray = [];
+    for (let i = 1; i <= number; i++) {
+      counterArray[i] = <Counter number={i} />;
+    }
+    return counterArray;
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="counter-container">{createCounters(3)}</div>
     </div>
   );
 }
