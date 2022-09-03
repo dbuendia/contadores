@@ -5,7 +5,7 @@ function Counter({ number }) {
   let [count, setCount] = useState(0);
 
   function handleSum() {
-    // Why count++ doesn't work!?
+    // Why count++ doesn't work!? TEST
     setCount(count + 1);
   }
 
