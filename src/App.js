@@ -1,6 +1,8 @@
 import Counter from "./components/Counter.jsx";
 import Header from "./components/Header.jsx";
 
-function App() {}
+function App() {
+  /**/
+}
 
 export default App;
