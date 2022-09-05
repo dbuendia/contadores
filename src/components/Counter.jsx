@@ -1,19 +1,11 @@
 import React from "react";
-import { useState } from "react";
 
-function Counter({ number }) {
-  let [count, setCount] = useState(0);
-
-  function handleSum() {
-    // Why count++ doesn't work!?
-    setCount(count + 1);
-  }
-
+function Counter({ number, count, add }) {
   return (
     <div className="counter">
       <p>Contador {number}</p>
       <div>{count}</div>
-      <button onClick={handleSum}>+1</button>
+      <button onClick={() => add(count + 1)}>+1</button>
     </div>
   );
 }

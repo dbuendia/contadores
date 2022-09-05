@@ -53,3 +53,9 @@
   width: 80%;
 
 }
+
+.counter-sum {
+  margin-top: 40px;
+  font-size: 30px;
+  color: var(--ghost-white)
+}
