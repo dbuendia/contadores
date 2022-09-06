@@ -17,13 +17,10 @@ function App() {
     let updatedCounters = counters.map((elem) => {
       if (elem.id === id) {
         if (e.target.innerText === "+1") {
-          console.log("sumare +1");
           elem.count = elem.count + 1;
         } else if (e.target.innerText === "-1") {
-          console.log("restare -1");
           elem.count = elem.count - 1;
         } else {
-          console.log("Reseteo por puta");
           elem.count = 0;
         }
         return elem;
