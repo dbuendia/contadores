@@ -1,11 +1,14 @@
 import React from "react";
 
-function Counter({ number, count, add }) {
+function Counter({ id, title, count, updateCounters }) {
   return (
     <div className="counter">
-      <p>Contador {number}</p>
+      <p>{title}</p>
       <div>{count}</div>
-      <button onClick={() => add(count + 1)}>+1</button>
+      {/* Pasamos una función anónima y no la llamada a esa función. Porque el componente se rerenderizaría cada vez y entraríamos en un bucle infinito */}
+      <button onClick={(e) => updateCounters(id, e)}>+1</button>
+      <button onClick={(e) => updateCounters(id, e)}>-1</button>
+      <button onClick={(e) => updateCounters(id, e)}>Reset</button>
     </div>
   );
 }
