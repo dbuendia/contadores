@@ -6,6 +6,11 @@ import countersList from "./counters.js";
 function App() {
   // Recibo todo el dataset como un estado
   const [counters, setCounters] = useState(countersList);
+  let [step, setStep] = useState(2);
+
+  function handleStepChange(e) {
+    setStep(e.target.value);
+  }
 
   // Tiene que haber un onClick que nos devuelva el ID del contador clicado.
   // Para acceder a un valor de un child desde un parent:
@@ -16,10 +21,12 @@ function App() {
     // console.log(e.target.innerText);
     let updatedCounters = counters.map((elem) => {
       if (elem.id === id) {
-        if (e.target.innerText === "+1") {
-          elem.count = elem.count + 1;
-        } else if (e.target.innerText === "-1") {
-          elem.count = elem.count - 1;
+        // Step es string y debemos pasarlo a número
+        step = Number(step);
+        if (e.target.innerText === "+") {
+          elem.count = elem.count + step;
+        } else if (e.target.innerText === "-") {
+          elem.count = elem.count - step;
         } else {
           elem.count = 0;
         }
@@ -58,6 +65,17 @@ function App() {
       </div>
       <div className="counter-sum">
         <p>Suma de los contadores: {calculateSum()}</p>
+      </div>
+      <div className="counter-step">
+        <label id="step">Step value: {step}</label>
+        <input
+          type="range"
+          id="step"
+          min="0"
+          max="10"
+          value={step}
+          onChange={handleStepChange}
+        ></input>
       </div>
     </div>
   );

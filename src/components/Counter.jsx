@@ -6,8 +6,8 @@ function Counter({ id, title, count, updateCounters }) {
       <p>{title}</p>
       <div>{count}</div>
       {/* Pasamos una función anónima y no la llamada a esa función. Porque el componente se rerenderizaría cada vez y entraríamos en un bucle infinito */}
-      <button onClick={(e) => updateCounters(id, e)}>+1</button>
-      <button onClick={(e) => updateCounters(id, e)}>-1</button>
+      <button onClick={(e) => updateCounters(id, e)}>+</button>
+      <button onClick={(e) => updateCounters(id, e)}>-</button>
       <button onClick={(e) => updateCounters(id, e)}>Reset</button>
     </div>
   );
