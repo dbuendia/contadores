@@ -7,10 +7,11 @@
 
 /* Colours */
 :root {
-  --react-blue: #61dafb;
+  --slateblue: #6a5acd;
+  --slatebabyblue: #5aaccd;
+  --slateorange: #cd625a;
   --react-black: #282c34;
   --ghost-white: #F8F8FF;
-  --slateblue: var(slateblue);
 }
 
 .App {
@@ -38,9 +39,9 @@
 
 .counter {
   color: var(--ghost-white);
-  background-color: slateblue;
+  background-color: var(--slateblue);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  height: 160px;
+  height: 180px;
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -70,4 +71,20 @@
 
 .counter-step input {
   width: 50%;
+}
+
+.btn {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--ghost-white);
+  padding: 5px;
+}
+
+.primary {
+  background-color: var(--slatebabyblue);
+  border: none;
+}
+
+.danger {
+  background-color: var(--slateorange);
+  border: none;
 }

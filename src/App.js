@@ -17,7 +17,7 @@ function App() {
   // Para acceder a un valor de un child desde un parent:
   // Creo una función que reciba un parámetro, la paso como prop al child, y el child la ejecuta con el valor deseado como argumento.
   // Queremos rehacer el dataset, pero cambiando algunos datos:
-  function updateCounters(id, e, action) {
+  function updateCounters(id, action) {
     // Lo recorro todo con map, pero si el id coincide con el recuperado, lo cambio:
     // console.log(e.target.innerText);
     let updatedCounters = counters.map((elem) => {
