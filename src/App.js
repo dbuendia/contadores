@@ -1,3 +1,5 @@
+import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import Counter from "./components/Counter.jsx";
 import Header from "./components/Header.jsx";
@@ -47,20 +49,53 @@ function App() {
     return sum;
   }
 
+  function showOrHideCounter(id, action) {
+    let updatedCounters = counters.map((elem) => {
+      if (elem.id === id) {
+        if (action === actions.hide) {
+          elem.show = !elem.show;
+          return elem;
+        }
+      } else {
+        return elem;
+      }
+    });
+    setCounters(updatedCounters);
+  }
+
+  function showAllCounters() {
+    let updatedCounters = counters.map((elem) => {
+      if (elem.show !== true) {
+        elem.show = true;
+      }
+      return elem;
+    });
+    setCounters(updatedCounters);
+  }
+
+  React.useEffect(() => {
+    console.log("Ha habido un cambio en los estados de Counter");
+  }, [counters]);
+
   return (
     <div className="App">
       <Header />
       <div className="counter-container">
         {counters.map((counter) => {
-          return (
-            <Counter
-              key={counter.id}
-              id={counter.id}
-              title={counter.title}
-              count={counter.count}
-              updateCounters={updateCounters}
-            />
-          );
+          if (counter.show === true) {
+            return (
+              <Counter
+                key={counter.id}
+                id={counter.id}
+                title={counter.title}
+                count={counter.count}
+                updateCounters={updateCounters}
+                showOrHideCounter={showOrHideCounter}
+              />
+            );
+          } else {
+            return null;
+          }
         })}
       </div>
       <div className="counter-sum">
@@ -77,6 +112,9 @@ function App() {
           onChange={handleStepChange}
         ></input>
       </div>
+      <button className="btn danger" onClick={() => showAllCounters()}>
+        Show counters again
+      </button>
     </div>
   );
 }
