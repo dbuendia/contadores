@@ -77,21 +77,17 @@ function App() {
       <Header />
       <div className="counter-container">
         {counters.map((counter) => {
-          if (counter.show === true) {
-            return (
-              <Counter
-                key={counter.id}
-                id={counter.id}
-                title={counter.title}
-                count={counter.count}
-                updateCounters={updateCounters}
-                showOrHideCounter={showOrHideCounter}
-                show={counter.show}
-              />
-            );
-          } else {
-            return null;
-          }
+          return (
+            <Counter
+              key={counter.id}
+              id={counter.id}
+              title={counter.title}
+              count={counter.count}
+              updateCounters={updateCounters}
+              showOrHideCounter={showOrHideCounter}
+              show={counter.show}
+            />
+          );
         })}
       </div>
       <div className="counter-sum">

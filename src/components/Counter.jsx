@@ -23,11 +23,17 @@ function Counter({
   }, [count]);
 
   React.useEffect(() => {
-    console.log("El componente (id: " + id + ") ha cambiado su visibilidad.");
+    console.log(
+      "El componente (id: " +
+        id +
+        ") ha cambiado su visibilidad a " +
+        show +
+        "."
+    );
   }, [show]);
 
   return (
-    <div className="counter">
+    <div className={show === true ? "counter" : "disabled"}>
       <p>{title}</p>
       <div>{count}</div>
       {/* En onClick pasamos una función anónima y no la llamada a esa función. Porque el componente se rerenderizaría cada vez y entraríamos en un bucle infinito */}

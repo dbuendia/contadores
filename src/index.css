@@ -103,3 +103,7 @@ body {
   background-color: var(--slateorange);
   border: none;
 }
+
+.disabled {
+  display: none;
+}
