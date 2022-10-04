@@ -2,7 +2,14 @@ import React from "react";
 import { actions } from "../constants.js";
 import Button from "../components/Button.jsx";
 
-function Counter({ id, title, count, updateCounters, showOrHideCounter }) {
+function Counter({
+  id,
+  title,
+  count,
+  updateCounters,
+  showOrHideCounter,
+  show,
+}) {
   React.useEffect(() => {
     console.warn(
       "El componente Counter (id: " + id + ") ha sido montado en la aplicación."
@@ -14,6 +21,10 @@ function Counter({ id, title, count, updateCounters, showOrHideCounter }) {
       "La cuenta del componente Counter (id: " + id + ") ha cambiado de valor"
     );
   }, [count]);
+
+  React.useEffect(() => {
+    console.log("El componente (id: " + id + ") ha cambiado su visibilidad.");
+  }, [show]);
 
   return (
     <div className="counter">

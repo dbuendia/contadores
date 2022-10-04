@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import Counter from "./components/Counter.jsx";
 import Header from "./components/Header.jsx";
@@ -73,10 +72,6 @@ function App() {
     setCounters(updatedCounters);
   }
 
-  React.useEffect(() => {
-    console.log("Ha habido un cambio en los estados de Counter");
-  }, [counters]);
-
   return (
     <div className="App">
       <Header />
@@ -91,6 +86,7 @@ function App() {
                 count={counter.count}
                 updateCounters={updateCounters}
                 showOrHideCounter={showOrHideCounter}
+                show={counter.show}
               />
             );
           } else {
